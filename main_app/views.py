@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Pokemon
 
 # Views are equivalent to controllers in express?
@@ -23,4 +23,12 @@ def pokemon_detail(request, pokemon_id):
 class PokemonCreate(CreateView):
     model = Pokemon
     fields = '__all__'
+
+class PokemonUpdate(UpdateView):
+    model = Pokemon
+    fields = ['breed', 'description', 'age']
+
+class PokemonDelete(DeleteView):
+    model = Pokemon
+    success_url = '/pokemon'
 

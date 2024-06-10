@@ -9,7 +9,7 @@
     <p>Description: {{ pokemon.description|linebreaks }}</p>
     {% if pokemon.age > 0 %}
     <p>Age: {{ pokemon.age }}</p>
-    {% elseif %}
+    {% else %}
     <p>Age: Egg</p>
     {% endif %}
     <div class="card-action">
