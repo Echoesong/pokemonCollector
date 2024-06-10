@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Pokemon
 
 # Views are equivalent to controllers in express?
 # Create your views here.
@@ -11,8 +12,10 @@ def about(request):
     return render(request, 'about.html')
 
 def pokemon_index(request):
-    pokemons = [
-  {'name': 'Lolo', 'breed': 'tabby', 'description': 'furry little demon', 'age': 3},
-  {'name': 'Sachi', 'breed': 'calico', 'description': 'gentle and loving', 'age': 2},
-]
+    pokemons = Pokemon.objects.all() 
     return render(request, 'pokemon/index.html', { 'pokemons': pokemons})
+
+def pokemon_detail(request, pokemon_id):
+    pokemon = Pokemon.objects.get(id=pokemon_id)
+    return render(request, 'pokemon/detail.html', {'pokemon': pokemon})
+
