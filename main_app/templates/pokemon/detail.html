@@ -9,9 +9,13 @@
     <p>Description: {{ pokemon.description|linebreaks }}</p>
     {% if pokemon.age > 0 %}
     <p>Age: {{ pokemon.age }}</p>
-    {% else %}
+    {% elseif %}
     <p>Age: Egg</p>
     {% endif %}
+    <div class="card-action">
+      <a href="{% url 'pokemon_update' pokemon.id %}">Edit</a>
+      <a href="{% url 'pokemon_delete' pokemon.id %}">Delete</a>
+    </div>
   </div>
 </div>
 

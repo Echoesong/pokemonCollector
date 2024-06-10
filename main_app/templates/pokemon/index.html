@@ -4,7 +4,7 @@
 
 {% for pokemon in pokemons %}
 
-<a href="/pokemon/{{ pokemon.id }}">
+<a href="{% url 'detail' pokemon.id %}">
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ pokemon.name }}</span>
