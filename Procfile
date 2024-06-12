@@ -1,0 +1,1 @@
+web: gunicorn --chdir . --pid /var/pids/web.pid pokemoncollector.wsgi:application
