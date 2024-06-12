@@ -8,19 +8,14 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 """
 
 import os
-import sys
-
-
 from django.core.wsgi import get_wsgi_application
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+load_dotenv(dotenv_path)
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pokemoncollector.settings')
 
 application = get_wsgi_application()
 
-
-from django.core.wsgi import get_wsgi_application
-
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pokemoncollector.settings")
-
-application = get_wsgi_application()
